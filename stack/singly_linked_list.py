@@ -14,13 +14,10 @@ class LinkedList:
         self.tail = None  # stores a node that is the end of the list
         self.prev = prev
         self.next_node = next_node
+        self.length = 1 if node is not None else 0
     
-    
-    def delete(self, prev = None):
-        if self.prev:
-            self.prev.next_node = self.next_node
-        if self.next_node:
-            self.next_node.prev = self.prev
+    def __len__(self): # built in method, allows easy access
+        return self.length
 
 
     def add_to_head(self, value):
@@ -86,10 +83,6 @@ class LinkedList:
             current_node = current_node.next_node
         return max_value
     
-    def remove_from_tail(self):
-        value = self.tail.value
-        self.delete(self.tail)
-        return value
+    
 
 
-  

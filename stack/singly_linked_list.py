@@ -1,12 +1,25 @@
+
 class Node:
-    def __init__(self, value=None, next_node=None):
+    def __init__(self, value=None,prev = None, next_node=None):
         self.value = value
         self.next_node = next_node
+        self.prev = prev
+        
+    
+
 # build a class to manage nodes
 class LinkedList:
-    def __init__(self):
+    def __init__(self, prev = None, node = None, next_node=None):
         self.head = None  # stores a node that is the begining of the list
         self.tail = None  # stores a node that is the end of the list
+        self.prev = prev
+        self.next_node = next_node
+        self.length = 1 if node is not None else 0
+    
+    def __len__(self): # built in method, allows easy access
+        return self.length
+
+
     def add_to_head(self, value):
         # create a node to add
         new_node = Node(value)
@@ -69,6 +82,7 @@ class LinkedList:
                 max_value = current_node.value
             current_node = current_node.next_node
         return max_value
+    
+    
 
 
-  
